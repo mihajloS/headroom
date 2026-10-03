@@ -38,13 +38,13 @@ export HEADROOM_LEVEL=low
 git clone --depth 1 https://github.com/mihajloS/headroom ~/.claude/skills/headroom
 ```
 
-Then add one line to `~/.claude/CLAUDE.md` so it applies on every prompt without you thinking about it:
+Then add one line to `~/.claude/CLAUDE.md` so the agent reaches for it at the right moment without you thinking about it:
 
 ```markdown
-Always apply the `headroom` skill on this machine.
+Before the first build, test run, dependency install, server, browser, docker command or subagent, invoke the `headroom` skill.
 ```
 
-Optional: have the level detected at session start, before the first prompt, with a `SessionStart` hook in `~/.claude/settings.json`:
+Recommended: also put the level into the agent's context at session start, so it holds even before the skill is invoked, with a `SessionStart` hook in `~/.claude/settings.json`:
 
 ```json
 {
